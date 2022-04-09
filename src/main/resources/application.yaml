@@ -1,0 +1,49 @@
+server:
+  port: 8888
+  servlet:
+    session:
+      cookie:
+        http-only: true
+jasypt:
+  encryptor:
+    password: leiq
+spring:
+  application:
+    name: learn-application
+  main:
+    allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.223.166.13:3306/dev?zeroDateTimeBehavior=convertToNull&characterEncoding=utf-8&serverTimezone=UTC&serverTimezone=GMT%2B8
+    password: ENC(jIFfo5gABzv7AuIhl+mqClpPmdD6uwk8)
+    username: root
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: UTC
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+upload:
+  static:
+    url: E:\yonyou\sql\
+threadpool:
+  #是否开启线程
+  open_flag: true
+  #核心线程数
+  core_pool_size: 10
+  #最大线程数
+  max_pool_size: 200
+  #队列大小
+  queue_capacity: 400
+  #空闲线程活跃时间(s)
+  keep_alive_seconds: 60
+  #线程池名称
+  default_name: test-pool
