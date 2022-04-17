@@ -31,6 +31,10 @@ spring:
       naming:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+  redis:
+    host: 124.223.166.13
+    port: 6379
+    password: ENC(jIFfo5gABzv7AuIhl+mqClpPmdD6uwk8)
 upload:
   static:
     url: E:\yonyou\sql\
