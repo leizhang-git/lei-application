@@ -3,6 +3,8 @@ package com.yfyy.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yfyy.domain.config.condition.Constants;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -13,6 +15,8 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
+@Getter
+@Setter
 public class User extends DefaultEntity{
 
     private static final long serialVersionID = 1L;

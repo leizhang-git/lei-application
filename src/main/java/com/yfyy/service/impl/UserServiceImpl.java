@@ -1,6 +1,7 @@
 package com.yfyy.service.impl;
 
 import com.yfyy.domain.User;
+import com.yfyy.domain.dto.UserDTO;
 import com.yfyy.repository.UserRepository;
 import com.yfyy.service.UserService;
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -42,4 +44,29 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll(pageRequest).getContent();
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public Boolean deleteByUserId(String userId) {
+        try {
+            userRepository.deleteByUserId(userId);
+        }catch (Exception e) {
+            log.error("delete user error.", e);
+            throw new RuntimeException("userId" + userId + "不存在");
+        }
+        return Boolean.TRUE;
+    }
+
+    @Override
+    public void convertUserDTO(User user, UserDTO userDTO) {
+        userDTO = UserDTO.builder().id(user.getId())
+                .userId(user.getUserId())
+                .email(user.getEmail())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .headSculpture(user.getHeadSculpture())
+                .mobile(user.getMobile())
+                .organization(user.getOrganization())
+                .password(user.getPassword())
+                .roles(user.getRoles()).build();
+    }
 }

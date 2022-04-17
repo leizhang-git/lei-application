@@ -1,5 +1,6 @@
 package com.yfyy.rest;
 
+import com.yfyy.anno.CheckLogin;
 import com.yfyy.service.impl.UserServiceImpl;
 import com.yfyy.util.ResultVO;
 import org.slf4j.Logger;
@@ -29,5 +30,11 @@ public class UserController {
     public ResultVO<?> findAllUser(@RequestParam(value = "ps", defaultValue = "100") Integer ps,
                                    @RequestParam(value = "pn", defaultValue = "1") Integer pn) {
         return ResultVO.getSuccess(userService.getUserWithPage(ps, pn));
+    }
+
+    @CheckLogin
+    @GetMapping("/delete/{userId}")
+    public ResultVO<?> deleteByUserId(@PathVariable String userId) {
+        return ResultVO.getSuccess(userService.deleteByUserId(userId));
     }
 }
