@@ -4,6 +4,7 @@ import com.yfyy.domain.User;
 import com.yfyy.domain.dto.UserDTO;
 import com.yfyy.repository.UserRepository;
 import com.yfyy.service.UserService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,6 +34,15 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("用户不存在！");
         }
         return user;
+    }
+
+    @Override
+    public List<User> findUserListByName(String name) {
+        List<User> userNameList = userRepository.findAllByUserName(name);
+        if(CollectionUtils.isEmpty(userNameList)) {
+            return Collections.emptyList();
+        }
+        return userNameList;
     }
 
     @Override
@@ -68,5 +79,11 @@ public class UserServiceImpl implements UserService {
                 .organization(user.getOrganization())
                 .password(user.getPassword())
                 .roles(user.getRoles()).build();
+    }
+
+    @Override
+    public User saveUser(User user) {
+        User userInfo = userRepository.save(user);
+        return userInfo;
     }
 }

@@ -13,9 +13,13 @@ public interface UserService {
 
     User findUserByUserId(String userId);
 
+    List<User> findUserListByName(String name);
+
     List<User> getUserWithPage(Integer ps, Integer pn);
 
     Boolean deleteByUserId(String userId);
 
     void convertUserDTO(User user, UserDTO userDTO);
+
+    User saveUser(User user);
 }

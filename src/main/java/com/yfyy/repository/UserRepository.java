@@ -34,5 +34,8 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
     @Query(value = "select d.userId from User d")
     List<String> findAllUserIds();
 
+    @Query(value = "select d from User d where d.firstName = :firstName")
+    List<User> findAllByUserName(@Param("firstName") String firstName);
+
     void deleteByUserId(@Param("userId") String userId);
 }
