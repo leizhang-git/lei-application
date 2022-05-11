@@ -35,6 +35,11 @@ spring:
     host: 124.223.166.13
     port: 6379
     password: ENC(jIFfo5gABzv7AuIhl+mqClpPmdD6uwk8)
+lei:
+  boot:
+    redis:
+      refs:
+        defaultDef: lei-redis
 upload:
   static:
     url: E:\yonyou\sql\
