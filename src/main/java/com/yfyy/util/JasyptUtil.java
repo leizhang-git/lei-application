@@ -24,7 +24,7 @@ public class JasyptUtil {
     }
 
     /**
-     * Jasypt加密
+     * Jasypt解密
      * @param encryptedText 密文
      * @return String
      */

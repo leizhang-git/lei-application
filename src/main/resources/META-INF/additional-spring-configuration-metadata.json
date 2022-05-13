@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "build.platform",
+      "type": "java.lang.String",
+      "description": "Description for build.platform."
+  }
+] }

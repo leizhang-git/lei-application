@@ -61,7 +61,6 @@ threadpool:
 application:
   jwt:
     debug: true
-    debugTenant: ncc-tenant
     debugToken: VkcxME5GSkdTa1ZYYTNoTVRWWnJlRlJzYUVkU2JIQkdXWHBXYW1KSVFsbFVha2w0WXpGc2NsVnVVbWhpVlZWM1ZVWkZPVkJSUFQwPQ==
     expireTime: 864000
     # 制定jwt认证Key的过期时间，格式为秒数，如1天过期就写86400
