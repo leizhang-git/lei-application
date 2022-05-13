@@ -5,6 +5,9 @@ import com.yfyy.domain.PlatformEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.util.Properties;
@@ -22,6 +25,13 @@ public class SettingUtil {
 
     private static PlatformEnum[] auths = new PlatformEnum[]{PlatformEnum.JWT};
 
+    static {
+        Resource app = new ClassPathResource("application.yaml");
+        YamlPropertiesFactoryBean yamlPropertiesFactoryBean = new YamlPropertiesFactoryBean();
+        yamlPropertiesFactoryBean.setResources(app);
+        properties = yamlPropertiesFactoryBean.getObject();
+    }
+
     /**
      * 构建平台
      */
@@ -38,7 +48,7 @@ public class SettingUtil {
     public static PlatformEnum getBuildPlatform() {
         String s = get(PLATFORM_KEY);
         if (StrUtil.isBlank(s)) {
-            log.info("配置文件中没有配置编译平台，默认使用带YHT的平台");
+            log.info("配置文件中没有配置编译平台，默认走JWT");
             return PlatformEnum.JWT;
         }
         return PlatformEnum.valueOf(s);
