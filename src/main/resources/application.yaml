@@ -20,7 +20,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://124.223.166.13:3306/dev?zeroDateTimeBehavior=convertToNull&characterEncoding=utf-8&serverTimezone=UTC&serverTimezone=GMT%2B8
-    password: ENC(jIFfo5gABzv7AuIhl+mqClpPmdD6uwk8)
+    password: ENC(kMPMUVszI1pOZG3cE66Pag839AZz5E/D7blYmuGMOKI0CAKSLhpMF/E00p5Hq3iA)
     username: root
   jpa:
     open-in-view: false
@@ -34,7 +34,7 @@ spring:
   redis:
     host: 124.223.166.13
     port: 6379
-    password: ENC(jIFfo5gABzv7AuIhl+mqClpPmdD6uwk8)
+    password: ENC(kMPMUVszI1pOZG3cE66Pag839AZz5E/D7blYmuGMOKI0CAKSLhpMF/E00p5Hq3iA)
 lei:
   boot:
     redis:
