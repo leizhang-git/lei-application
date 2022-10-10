@@ -44,7 +44,7 @@ build:
   platform: JWT
 upload:
   static:
-    url: E:\yonyou\sql\
+    url: E:\xxx\sql\
 threadpool:
   #是否开启线程
   open_flag: true
